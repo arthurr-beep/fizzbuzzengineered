@@ -1,0 +1,15 @@
+language: csharp
+sudo: required
+mono: none
+dotnet: 3.1
+
+os:
+  - linux
+
+before_script:
+  - dotnet restore FizzBuzz.sln
+
+script:
+  - dotnet build FizzBuzz.sln
+  - dotnet test UnitTests/FizzBuzz.Api.Tests/FizzBuzz.Api.Tests.csproj
+  - dotnet test UnitTests/FizzBuzz.Services.Tests/FizzBuzz.Services.Tests.csproj
